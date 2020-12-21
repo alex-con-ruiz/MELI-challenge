@@ -16,6 +16,10 @@ app.use(bodyParser.json());
 const FormatSearch = require('./format/formatFunctions').FormatSearch;
 const FormatItem = require('./format/formatFunctions').FormatItem;
 
+app.get('/', (req, res) => {
+
+    res.send(`Funcionando`);
+});
 
 // Cluster test loadtest -c 10 --rps localhost:PORT/cluster
 app.get('/cluster', (req, res) => {
