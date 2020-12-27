@@ -66,7 +66,13 @@ const FormatItem = ({ id, title, currency_id, price, pictures, condition, shippi
 
   itemById.setPicture(pictures[0].url || '');
   itemById.setCondition(condition);
-  itemById.setFreeShipping(shipping.free_methods[0].rule.free_shipping_flag);
+ 
+  if (shipping.free_methods) {
+    itemById.setFreeShipping(shipping.free_methods[0].rule.free_shipping_flag);
+  } else {
+    itemById.setFreeShipping(shipping.free_shipping);
+  }
+
   itemById.setQuantity(sold_quantity);
   itemById.setCategoryId(category_id)
   
